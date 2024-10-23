@@ -38,12 +38,10 @@ speechBtn.addEventListener("click", (e) => {
     e.preventDefault();
     
     if (textarea.value.trim() !== "") {
-        if (!synth.speaking) {
-            textToSpeech(textarea.value);
-        } else {
+        if (synth.speaking) {
             synth.cancel(); // Stop speaking if already speaking
-            textToSpeech(textarea.value);
         }
+        textToSpeech(textarea.value);
     }
 });
 
